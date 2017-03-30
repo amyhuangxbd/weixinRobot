@@ -1,0 +1,30 @@
+# http://www.appveyor.com/docs/appveyor-yml
+
+# Test against these versions of Io.js and Node.js.
+environment:
+  WECHATY_LOG: silent
+  matrix:
+    - nodejs_version: "6"
+#    - nodejs_version: "7"
+
+# Install scripts. (runs after repo cloning)
+install:
+  # Get the latest stable version of Node.js or io.js
+  - ps: Install-Product node $env:nodejs_version
+  # install modules
+  - npm --progress=false install > nul 2>&1
+  - npm --progress=false install phantomjs-prebuilt > nul 2>&1
+
+# Post-install test scripts.
+test_script:
+  - node --version
+  - npm --version
+  - npm run lint
+  - npm run dist
+  - npm run test:chrome:fast
+
+# Don't actually build.
+build: off
+
+# Set build version format here instead of in the admin panel.
+version: "{build}"

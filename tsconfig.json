@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "es2015"
+    , "module": "commonjs"
+    , "outDir": "dist"
+    , "declaration": true
+    , "sourceMap": true
+
+    , "noEmitOnError": true
+    , "noUnusedLocals": true
+    , "noImplicitReturns": true
+    , "noFallthroughCasesInSwitch": true
+    , "strictNullChecks": true
+
+    , "noImplicitAny": false
+    , "noUnusedParameters": false
+    , "noImplicitThis": false
+    , "traceResolution": false
+  }
+  , "exclude": [
+      "node_modules/"
+    , "dist/"
+  ]
+  , "include": [
+    "bin/*.ts"
+     , "example/**/*.ts"
+     , "src/**/*.ts"
+     , "test/**/*.spec.ts"
+     , "bot/**/*.ts"
+  ]
+}
