@@ -160,13 +160,13 @@ bot
    *  1. say ding first time, will got a room invitation
    *  2. say ding in room, will be removed out
    */
-  if (/^jinyinruyi$/i.test(content)) {
+  if (/^ding$/i.test(content)) {
 
     /**
      *  in-room message
      */
     if (room) {
-      if (/^jinyinruyi/i.test(room.topic())) {
+      if (/^ding/i.test(room.topic())) {
         /**
          * move contact out of room
          */
@@ -181,7 +181,7 @@ bot
       /**
        * find room name start with "ding"
        */
-      Room.find({ topic: /^jinyinruyi/i })
+      Room.find({ topic: /^ding/i })
           .then(dingRoom => {
 
             /**
@@ -242,7 +242,7 @@ function manageDingRoom() {
   /**
    * Find Room
    */
-  Room.find({ topic: /^jinyinruyi/i })
+  Room.find({ topic: /^ding/i })
   .then(room => {
     if (!room) {
       log.warn('Bot', 'there is no room topic ding(yet)')

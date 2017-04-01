@@ -76,6 +76,7 @@ async function main() {
   const contactList = await Contact.findAll()
 
   log.info('Bot', '#######################')
+  log.info('Bot', 'Contact list: (%s)', JSON.stringify(contactList))
   log.info('Bot', 'Contact number: %d\n', contactList.length)
 
   const MAX = 17
